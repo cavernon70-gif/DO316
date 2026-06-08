@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /home/student
 lab start virtualization-deploy
 lab start accessing-clicreate
 lab start replicating-clone
@@ -16,5 +17,7 @@ oc adm policy add-cluster-role-to-user cluster-admin verance-ii
 oc adm policy add-cluster-role-to-user cluster-admin moist
 sleep 30
 oc new-project lonely
+oc apply -f dwalin-template
+oc apply -f filli-template
 oc new-project vt100cineme
 

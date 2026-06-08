@@ -1,0 +1,37 @@
+apiVersion: kubevirt.io/v1
+kind: VirtualMachine
+metadata:
+  creationTimestamp: null
+  name: rhel9-database
+  namespace: accessing-clicreate
+spec:
+  dataVolumeTemplates:
+  - metadata:
+      creationTimestamp: null
+      name: rhel9-database-ds-rhel9-do316
+    spec:
+      sourceRef:
+        kind: DataSource
+        name: rhel9-do316
+        namespace: openshift-virtualization-os-images
+      storage:
+        resources: {}
+  preference:
+    inferFromVolume: rhel9-database-ds-rhel9-do316
+    inferFromVolumeFailurePolicy: Ignore
+  runStrategy: Always
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      domain:
+        devices: {}
+        memory:
+          guest: 5Gi
+        resources: {}
+      terminationGracePeriodSeconds: 180
+      volumes:
+      - dataVolume:
+          name: rhel9-database-ds-rhel9-do316
+        name: rhel9-database-ds-rhel9-do316
+status: {}

@@ -1,0 +1,15 @@
+apiVersion: cdi.kubevirt.io/v1beta1
+kind: DataVolume
+metadata:
+  name: castor-clone1
+  namespace: vt100cineme
+spec:
+  storage:
+    resources:
+      requests:
+        storage: 16Gi
+    storageClassName: ocs-external-storagecluster-ceph-rbd-virtualization
+  source:
+    pvc:
+      name: castor-rootdisk 
+      namespace: vt100cineme
