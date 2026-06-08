@@ -2,7 +2,6 @@
 cd /home/student
 lab start virtualization-deploy
 lab start accessing-clicreate
-lab start replicating-clone
 lab start advanced-import
 lab start multihomed-nmstate
 oc login -uadmin -predhatocp https://api.ocp4.example.com:6443
